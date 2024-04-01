@@ -19,7 +19,7 @@ pipeline {
             post {
                 success {
                     echo 'archiving...'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                    archiveArtifacts artifacts: '**/*.war'
                 }
             }
         }
@@ -28,13 +28,13 @@ pipeline {
             parallel {
                 stage ('Deploy to Dev') {
                     steps {
-                        sh "scp -i C:\tomcat.pem **/target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-8.0.23/webapps"
+                        sh "scp -i 'C:\zIT Study\Courses\Jenkins\zProjects\tomcat.pem' **/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-8.0.23/webapps"
                     }
                 }
                 /*
                 stage ('Deploy to Prod') {
                     steps {
-                        sh "scp -i C:\tomcat.pem **/target/*.war ec2-user@${params.tomcat_prod}:/opt/apache-tomcat-8.0.23/webapps"
+                        sh "scp -i ..."
                     }
                 }
                 */
