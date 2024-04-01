@@ -28,7 +28,7 @@ pipeline {
             parallel {
                 stage ('Deploy to Dev') {
                     steps {
-                        sh "scp -i 'C:\zIT Study\Courses\Jenkins\zProjects\tomcat.pem' **/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-8.0.23/webapps"
+                        sh "scp -i C:\tomcat.pem **/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-8.0.23/webapps"              
                     }
                 }
                 /*
