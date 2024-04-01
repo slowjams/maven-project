@@ -28,7 +28,7 @@ pipeline {
             parallel {
                 stage ('Deploy to Dev') {
                     steps {
-                        sh "scp -i C:\tomcat.pem **/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-8.0.23/webapps"              
+                        bat "scp -i C:\tomcat.pem **/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-8.0.23/webapps"              
                     }
                 }
                 /*
